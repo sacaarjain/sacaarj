@@ -11,7 +11,7 @@
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .separator{
-    width: 100%;
+    width: 99.9%;
     border: 1px solid black;
 }
 .navbar{
@@ -22,7 +22,7 @@
 }
 .logo{
     max-height: 100px;
-    height: auto;
+    width: auto;
 }
 .navigation{
     list-style: none;
@@ -128,5 +128,10 @@
         display: flex;
         flex-direction: row;
         align-items: flex-end;
+    }
+
+    .logo{
+        max-width: 140px;
+        height: auto;
     }
 }
