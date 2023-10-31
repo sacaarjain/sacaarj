@@ -103,6 +103,10 @@
     box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
 }
 
+.memoir {
+    text-align: center;
+}
+
 @media (max-width: 1300px) {
     #album img {
         width: 27.2%;
