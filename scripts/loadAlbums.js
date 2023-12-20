@@ -21,7 +21,7 @@ function loadAlbums() {
     backButton.style.display = 'none';
     albumTitleText.style.display = 'block';
     imageTitleText.style.display = 'none';
-    fetch('https://sacaarjain.com/data/albums.json')
+    fetch('https://www.sacaarjain.com/data/albums.json')
         .then(response => response.json())
         .then(data => {
             albumsData = data;
