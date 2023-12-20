@@ -1,4 +1,4 @@
-import { loadImages } from './loadImage.js';
+import { imageLoader } from './imageLoader.js';
 
 const albumsContainer = document.getElementById('albums');
 const nextAlbumsButton = document.getElementById('nextAlbumsButton');
@@ -51,7 +51,7 @@ function displayAlbums() {
             <p>${album.name}</p>
         `;
         albumThumbnail.addEventListener('click', () => {
-            loadImages(album.imagesFolderPath);
+            imageLoader(album.imagesFolderPath);
             backButton.style.display = 'block';
             albumsContainer.style.display = 'none';
             
