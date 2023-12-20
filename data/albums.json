@@ -1,0 +1,12 @@
+[
+    {
+        "name": "09/19/2023 ~ RSM Radio Tower",
+        "coverImagePath": "../photographs/RSMRadioTower/009.jpg",
+        "imagesFolderPath": "../photographs/RSMRadioTower/RSMRadioTower.json"
+    },
+    {
+        "name": "09/24/2023 ~ Miramar Air Show",
+        "coverImagePath": "../photographs/MiramarAirShow/050.jpg",
+        "imagesFolderPath": "../photographs/MiramarAirShow/MiramarAirShow.json"
+    }
+]

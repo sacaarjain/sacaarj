@@ -1,75 +1,140 @@
-*{
+/* Reset */
+* {
     margin: 0;
     padding: 0;
 }
-.header{
+
+/* Header */
+.header {
     min-height: 100vh;
     width: 100%;
 }
-.bg{
+
+/* Background */
+.bg {
     background-image: linear-gradient(to bottom left, rgb(75, 151, 182), rgb(255, 200, 128));
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
-.separator{
+
+/* Separator */
+.separator {
     width: 99.9%;
     border: 1px solid black;
 }
-.navbar{
+
+/* Navbar */
+.navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 10px 20px;
 }
-.logo{
+
+/* Logo */
+.logo {
     max-height: 100px;
     width: auto;
 }
-.navigation{
+
+/* Navigation Links */
+.navigation {
     list-style: none;
     display: flex;
 }
-.links{
+
+.links {
     font-size: 20px;
     text-decoration: none;
     color: black;
     border: 2px solid transparent;
     padding: 10px;
 }
+
 .links:hover {
     text-decoration: underline;
     border: 2px solid black;  
 }
-.titletext {
-    margin:10px 10px 0px 10px;
+
+/* Title Text */
+#imagetitletext {
+    margin: 10px;
 }
+
+#albumtitletext {
+    margin: 10px;
+}
+
+/* Footer */
 .footer {
     margin-top: 5px;
 }
+
 .sacaarfooter {
     text-align: center;
 }
-.footer-links{
+
+.footer-links {
     text-decoration: none;
     color: black;
     text-decoration: underline;
 }
+
 .footer-links:hover {
-    color:aliceblue;
+    color: aliceblue;
 }
 
-.album img {
+/* Album Thumbnails */
+.album-thumbnail {
     display: inline-block;
-    width: 23.6%;
+    width: 23.6%; /* For large screens (four per row) */
     box-sizing: border-box;
     padding: 5px;
     border: 1px solid #000;
     margin: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     transition: box-shadow 0.2s ease-in-out;
+    text-align: center;
 }
 
-.album img:hover {
+.album-thumbnail img {
+    width: 100%; /* Ensure images occupy 100% width of the container */
+    height: auto; /* Maintain aspect ratio */
+    cursor: pointer;
+}
+
+.album-thumbnail:hover {
     box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+}
+
+/* Individual Images */
+.image-wrapper {
+    display: inline-block;
+    width: 23.6%; /* For large screens (four per row) */
+    box-sizing: border-box;
+    padding: 5px;
+    border: 1px solid #000;
+    margin: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.2s ease-in-out;/* Ensure images do not overflow the container */
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    cursor: zoom-in;
+}
+
+.image-wrapper:hover {
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+}
+
+/* Button Format */
+#buttonformatBack {
+    display: flex;
+    justify-content: flex;
+    margin-top: 10px; 
+    margin-right: 0.5%;
 }
 
 #buttonformat {
@@ -79,7 +144,18 @@
     margin-right: 0.5%;
 }
 
-#nextButton {
+#backButton {
+    margin: 0px 10px 10px 10px;
+    width: 120px;
+    height: 30px;
+    background-color: transparent;
+    cursor: pointer;
+    box-shadow: -2px -2px 4px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+#nextButton,
+#nextAlbumsButton{
     margin: 0px 10px 10px 10px;
     width: 70px;
     height: 30px;
@@ -89,6 +165,7 @@
     transition: box-shadow 0.2s ease-in-out;
 }
 
+#previousAlbumsButton,
 #previousButton {
     margin: 0px 10px 10px 10px;
     width: 70px;
@@ -99,16 +176,43 @@
     transition: box-shadow 0.2s ease-in-out;
 }
 
-#nextButton:hover, #previousButton:hover {
+#nextButton:hover,
+#backButton:hover,
+#nextAlbumsButton:hover,
+#previousAlbumsButton:hover,
+#previousButton:hover {
     box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
 }
 
-.memoir {
-    text-align: center;
+/* Scroll to Top Button */
+#scrollTopBtn {
+    width: 50px;
+    height: 50px;
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: #7e6198;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 50%;
+    transition: opacity 0.3s ease-in-out;
 }
 
+.uparrow {
+    width: 100%;
+    height: auto;
+}
+
+/* Media Queries */
 @media (max-width: 1300px) {
-    #album img {
+    .album-thumbnail,
+    .image-wrapper {
         width: 27.2%;
         margin: 3%;
         padding: 10px;
@@ -121,7 +225,8 @@
 }
 
 @media (max-width: 767px) {
-    #album img {
+    .album-thumbnail,
+    .image-wrapper {
         display: block;
         width: 93%;
         box-sizing: border-box;
@@ -134,7 +239,7 @@
         align-items: flex-end;
     }
 
-    .logo{
+    .logo {
         max-width: 140px;
         height: auto;
     }

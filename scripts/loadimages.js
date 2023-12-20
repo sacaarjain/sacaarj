@@ -1,51 +1,84 @@
-const album = document.getElementById('album');
+const imagesContainer = document.getElementById('images');
 const nextButton = document.getElementById('nextButton');
 const previousButton = document.getElementById('previousButton');
-let imagesPerLoad = 8;
-const totalImages = 72;
-let currentIndex = 0;
+const backButton = document.getElementById('backButton');
+const albumTitleText = document.getElementById('albumtitletext');
+const imageTitleText = document.getElementById('imagetitletext');
 
-function updateImagesPerLoad() {
-    const screenWidth = window.innerWidth;
+let currentAlbumImages = []; // Store currently selected album images
+let currentIndexImages = 0;
+const imagesPerPageLarge = 8;
+const imagesPerPageMedium = 9;
 
-    if (screenWidth < 1300) {
-        imagesPerLoad = 9;
-    } else {
-        imagesPerLoad = 8;
-    }
+function loadImages(imagesFolderPath) {
+    imagesContainer.style.display = 'block';
+    albumTitleText.style.display = 'none';
+    imageTitleText.style.display = 'block';
+
+    fetch(imagesFolderPath) // Fetch the JSON file containing image paths
+        .then(response => response.json())
+        .then(data => {
+            // Extract image paths from the JSON data
+            currentAlbumImages = data.map(image => image.filePath);
+            currentIndexImages = 0;
+            displayImages();
+        })
+        .catch(error => console.error('Error loading album images:', error));
 }
 
-function loadImages() {
-    album.innerHTML = '';
-
-    const startIndex = currentIndex;
-    const endIndex = Math.min(currentIndex + imagesPerLoad, totalImages);
+function displayImages() {
+    imagesContainer.innerHTML = '';
+    const imagesPerPage = window.innerWidth >= 1024 ? imagesPerPageLarge : imagesPerPageMedium;
+    const startIndex = currentIndexImages;
+    const endIndex = Math.min(currentIndexImages + imagesPerPage, currentAlbumImages.length);
 
     for (let i = startIndex; i < endIndex; i++) {
+        const imagePath = currentAlbumImages[i];
+
         const img = document.createElement('img');
-        const imgLink = document.createElement('a');
-        img.src = `./photographs/${i + 1}.JPG`;
-        imgLink.href = `./photographs/${i + 1}.JPG`;
-        imgLink.target = '_blank';
-        imgLink.appendChild(img);
-        album.appendChild(imgLink);
+        img.src = imagePath;
+        img.alt = 'Image';
+
+        const imageWrapper = document.createElement('div');
+        imageWrapper.classList.add('image-wrapper');
+        imageWrapper.appendChild(img);
+
+        img.addEventListener('click', () => {
+            window.open(imagePath, '_blank');
+        });
+
+        imagesContainer.appendChild(imageWrapper);
     }
 
+    backButton.style.display = 'block';
+    nextButton.style.display = endIndex >= currentAlbumImages.length ? 'none' : 'block';
     previousButton.style.display = startIndex === 0 ? 'none' : 'block';
-    nextButton.style.display = endIndex >= totalImages ? 'none' : 'block';
 }
 
 nextButton.addEventListener('click', () => {
-    currentIndex = Math.min(currentIndex + imagesPerLoad, totalImages);
-    loadImages();
+    const imagesPerPage = window.innerWidth >= 1024 ? imagesPerPageLarge : imagesPerPageMedium;
+    currentIndexImages += imagesPerPage;
+    displayImages();
+});
+
+backButton.addEventListener('click', () => {
+    backButton.style.display = 'none';
+    imagesContainer.innerHTML = '';
+    imagesContainer.style.display = 'none';
+    nextButton.style.display = 'none';
+    previousButton.style.display = 'none';
+    imageTitleText.style.display = 'none';
+    albumTitleText.style.display = 'block';
 });
 
 previousButton.addEventListener('click', () => {
-    currentIndex = Math.max(currentIndex - imagesPerLoad, 0);
-    loadImages();
+    const imagesPerPage = window.innerWidth >= 1024 ? imagesPerPageLarge : imagesPerPageMedium;
+    currentIndexImages -= imagesPerPage;
+    if (currentIndexImages < 0)
+    {
+        currentIndexImages = 0;
+    }
+    displayImages();
 });
 
-updateImagesPerLoad();
-window.addEventListener('resize', updateImagesPerLoad);
-
-loadImages();
+export { loadImages };

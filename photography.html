@@ -1,50 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <!--Special thanks to my amazing and supportive girlfriend, Grace, for inspiring and motivating me to make this website :)-->
-        <!--Mr. Fudge's special place: sacaarjain.com/fudge.html-->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Sacaar Jain</title>
-        <link rel="icon" href="./images/alien.svg" type="image/svg+xml">
-        <link rel="stylesheet" href="css/photography.css">
-    </head>
-    <body>
-        <div class="bg">
-            <section class="header">
-                <nav>
-                    <div class="navbar">
-                        <div class="logo">
-                            <a href="photography.html">
-                                <img class="logo" src="./images/logo.png" alt="Sacaar Jain Logo"/>
-                            </a>
-                        </div>
-                        <ul class="navigation">
-                            <li><a class="links" href="index.html">Home</a></li>
-                            <li><a class="links" href="photography.html">Photography</a></li>
-                        </ul>
-                    </div>  
-                </nav>
-                <hr class="separator">
-                <h3 class="titletext"><em>Click on any image below to check it out in full resolution!</em></h3>  
-                <div class="album" id="album">
-                
-                </div>
-                <div id="buttonformat">
-                    <button id="previousButton">Previous</button>
-                    <button id="nextButton">Next</button>
-                </div>
-            </section>
-            
+<head>
+    <!-- Special thanks to my amazing and supportive girlfriend, Grace, for inspiring and motivating me to make this website :) -->
+    <!-- Mr. Fudge's special place: sacaarjain.com/fudge.html -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sacaar Jain</title>
+    <link rel="icon" href="./images/alien.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/photography.css">
+</head>
+<body>
+    <div class="bg">
+        <section class="header">
+            <nav>
+                <div class="navbar">
+                    <div class="logo">
+                        <a href="photography.html">
+                            <img class="logo" src="./images/logo.png" alt="Sacaar Jain Logo"/>
+                        </a>
+                    </div>
+                    <ul class="navigation">
+                        <li><a class="links" href="index.html">Home</a></li>
+                        <li><a class="links" href="photography.html">Photography</a></li>
+                    </ul>
+                </div>  
+            </nav>
             <hr class="separator">
-            <footer class="footer">
-                <div class="sacaarfooter">
-                    Contact me: Phone: <a href="tel:+19496276277" class="footer-links">(949) 627-6277</a> | 
-                    School Email: <a href="mailto:jains642@g.ucla.edu" class="footer-links">jains642@g.ucla.edu</a> | 
-                    Personal Email: <a href="mailto:jainsacaar@gmail.com" class="footer-links">jainsacaar@gmail.com</a>
-                    <p xmlns:cc="http://creativecommons.org/ns#" >This work by <span property="cc:attributionName">Sacaar Jain</span> is licensed under <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"></a></p>
-                </div>
-            </footer>
-        </div>
-        <script src="./scripts/loadimages.js"></script>
-    </body>
+            <h3 id="albumtitletext"><em>Click on any album to view the gallery of images!</em></h3>
+            <h3 id="imagetitletext"><em>Click on any image below to check it out in full resolution!</em></h3>  
+            <div id="buttonformatBack">
+                <button id="backButton">Back to Albums</button>
+            </div>
+            <button id="scrollTopBtn"><img class="uparrow", src="./images/uparrow.png" alt="Top"/></button>
+            <div class="albums" id="albums">
+                <!-- Albums will be displayed here -->
+            </div>
+            <div class="images" id="images">
+                <!-- Images related to the selected album will be displayed here -->
+            </div>
+            <div id="buttonformat">
+                <button id="previousButton">Previous</button>
+                <button id="nextButton">Next</button>
+                <button id="nextAlbumsButton">Next</button>
+                <button id="previousAlbumsButton">Previous</button>
+            </div>
+        </section>
+        
+        <hr class="separator">
+        <footer class="footer">
+            <div class="sacaarfooter">
+                Contact me: Phone: <a href="tel:+19496276277" class="footer-links">(949) 627-6277</a> | 
+                School Email: <a href="mailto:jains642@g.ucla.edu" class="footer-links">jains642@g.ucla.edu</a> | 
+                Personal Email: <a href="mailto:jainsacaar@gmail.com" class="footer-links">jainsacaar@gmail.com</a>
+                <p xmlns:cc="http://creativecommons.org/ns#" >This work by <span property="cc:attributionName">Sacaar Jain</span> is licensed under <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"></a></p>
+            </div>
+        </footer>
+    </div>
+    <script src="./scripts/loadAlbums.js" type="module"></script>
+    <script src="./scripts/loadImages.js" type="module"></script>
+    <script src="./scripts/moveToTop.js"></script>
+</body>
 </html>
