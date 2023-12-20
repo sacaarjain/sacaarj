@@ -1,4 +1,4 @@
-import { loadImages } from './loadImages.js';
+import { loadImages } from './loadImage.js';
 
 const albumsContainer = document.getElementById('albums');
 const nextAlbumsButton = document.getElementById('nextAlbumsButton');
