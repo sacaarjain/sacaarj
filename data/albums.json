@@ -8,5 +8,10 @@
         "name": "09/24/2023 ~ Miramar Air Show",
         "coverImagePath": "../photographs/MiramarAirShow/050.JPG",
         "imagesFolderPath": "../photographs/MiramarAirShow/MiramarAirShow.json"
+    },
+    {
+        "name": "12/02/2023 ~ Hope + Flower Helipad, Los Angeles",
+        "coverImagePath": "../photographs/LAHelipad/003.JPG",
+        "imagesFolderPath": "../photographs/LAHelipad/LAHelipad.json"
     }
 ]
