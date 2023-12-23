@@ -25,7 +25,6 @@ function loadAlbums() {
         .then(response => response.json())
         .then(data => {
             albumsData = data;
-            
             currentIndexAlbums = 0;
             displayAlbums();
         })
@@ -68,6 +67,31 @@ function displayAlbums() {
 backButton.addEventListener('click', () => {
     backButton.style.display = 'none';
     albumsContainer.style.display = 'block';
+});
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowLeft') {
+        const albumsPerPage = window.innerWidth >= 1024 ? albumsPerPageLarge : albumsPerPageMedium;
+        currentIndexAlbums += albumsPerPage;
+        if (albumsData.length < currentIndexAlbums)
+        {
+            currentIndexAlbums -= albumsPerPage;
+        }
+        displayAlbums();
+    }
+    else if (event.key === 'ArrowRight') {
+        const albumsPerPage = window.innerWidth >= 1024 ? albumsPerPageLarge : albumsPerPageMedium;
+        currentIndexAlbums -= albumsPerPage;
+        if (currentIndexAlbums < 0)
+        {
+            currentIndexAlbums = 0;
+        }
+        displayAlbums();
+    }
+    else if (event.key === 'Escape') {
+        backButton.style.display = 'none';
+        albumsContainer.style.display = 'block';
+    }
 });
 
 nextAlbumsButton.addEventListener('click', () => {

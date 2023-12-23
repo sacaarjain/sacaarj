@@ -55,6 +55,39 @@ function displayImages() {
     previousButton.style.display = startIndex === 0 ? 'none' : 'block';
 }
 
+document.addEventListener('keydown', (event) => {
+    if (backButton.style.display === 'block')
+    {
+        if (event.key === 'ArrowRight') {
+            const imagesPerPage = window.innerWidth >= 1024 ? imagesPerPageLarge : imagesPerPageMedium;
+            currentIndexImages += imagesPerPage;
+            if (currentAlbumImages.length < currentIndexImages)
+            {
+                currentIndexImages -= imagesPerPage;
+            }
+            displayImages();
+        }
+        else if (event.key === 'ArrowLeft') {
+            const imagesPerPage = window.innerWidth >= 1024 ? imagesPerPageLarge : imagesPerPageMedium;
+            currentIndexImages -= imagesPerPage;
+            if (currentIndexImages < 0)
+            {
+                currentIndexImages = 0;
+            }
+            displayImages();
+        }
+        else if (event.key === 'Escape') {
+            backButton.style.display = 'none';
+            imagesContainer.innerHTML = '';
+            imagesContainer.style.display = 'none';
+            nextButton.style.display = 'none';
+            previousButton.style.display = 'none';
+            imageTitleText.style.display = 'none';
+            albumTitleText.style.display = 'block';
+        }
+    }
+});
+
 nextButton.addEventListener('click', () => {
     const imagesPerPage = window.innerWidth >= 1024 ? imagesPerPageLarge : imagesPerPageMedium;
     currentIndexImages += imagesPerPage;
