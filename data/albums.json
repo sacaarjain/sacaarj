@@ -1,5 +1,10 @@
 [
     {
+        "name": "03/27/2023-03/30/2023 ~ San Francisco",
+        "coverImagePath": "../photographs/SanFrancisco/028.JPG",
+        "imagesFolderPath": "../photographs/SanFrancisco/SanFrancisco.json"
+    },
+    {
         "name": "09/19/2023 ~ RSM Radio Tower",
         "coverImagePath": "../photographs/RSMRadioTower/009.JPG",
         "imagesFolderPath": "../photographs/RSMRadioTower/RSMRadioTower.json"
