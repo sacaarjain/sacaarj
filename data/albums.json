@@ -18,5 +18,10 @@
         "name": "12/02/2023 ~ Hope + Flower Helipad, Los Angeles",
         "coverImagePath": "../photographs/LAHelipad/003.JPG",
         "imagesFolderPath": "../photographs/LAHelipad/LAHelipad.json"
+    },
+    {
+        "name": "12/31/2023 ~ Grand Canyon West",
+        "coverImagePath": "../photographs/GrandCanyon/058.JPG",
+        "imagesFolderPath": "../photographs/GrandCanyon/GrandCanyon.json"
     }
 ]
