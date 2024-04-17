@@ -23,5 +23,10 @@
         "name": "12/31/2023 ~ Grand Canyon West",
         "coverImagePath": "../photographs/GrandCanyon/058.JPG",
         "imagesFolderPath": "../photographs/GrandCanyon/GrandCanyon.json"
+    },
+    {
+        "name": "04/06/2024 ~ Venice Beach - Santa Monica",
+        "coverImagePath": "../photographs/VeniceBeach/027.JPG",
+        "imagesFolderPath": "../photographs/VeniceBeach/VeniceBeach.json"
     }
 ]
